@@ -1,0 +1,175 @@
+<mat-toolbar style="width: 100%; background-color: #07393c;">
+</mat-toolbar>
+<div class="container mt-4">
+    <div class="wrapper fadeInDown" >
+        <br>
+        <div id="formContent" class="scrollbar">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="p-2">
+                <h1 >APPLICATION PROCEDURE</h1>
+            </div>
+            <!-- Login Form -->
+            <form class="force-overflow" [formGroup]="ApplicationForm" (ngSubmit)="SaveFunct()">
+                <div class="p-1" style="text-align: left;">
+                    <p class="tag">Application Details</p>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control"  formControlName="skills">
+                            <label >Skill</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control"  formControlName="pastwork">
+                            <label >Pastwork</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <select class="form-select" formControlName="yrlevel">
+                              <option *ngFor="let yr of yrlvl">{{yr}}</option>
+                            </select>
+                            <label >Year Level</label>
+                          </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating">
+                            <select class="form-select" formControlName="scourse">
+                              <option *ngFor="let c of course">{{c}}</option>
+                            </select>
+                            <label >Course</label>
+                          </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control"  formControlName="sreason">
+                            <label >Reason</label>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="p-1" style="text-align: left;">
+                    <p class="tag">Student Information</p>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control"  formControlName="fname">
+                            <label >First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control"  formControlName="mname">
+                            <label >Middle Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control"  formControlName="lname">
+                            <label >Last Name</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-2">
+                            <input type="text" class="form-control" id="" formControlName="address">
+                            <label >Address</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="number" class="form-control" id="" formControlName="schoolid">
+                            <label >School ID Number</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="date" class="form-control" id="" formControlName="bdate">
+                            <label >Birtdate</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="" formControlName="contactno">
+                            <label >Contact No.</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="" formControlName="status">
+                            <label >Civil Status</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="" formControlName="pname">
+                            <label >Parent Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="" formControlName="pcontact">
+                            <label >Contact No.</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-1" style="text-align: left;">
+                    <p class="tag">Account Information</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" id="" formControlName="semail">
+                            <label >Email</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <div class="form-floating mb-1">
+                            <input type="password" class="form-control" id="" formControlName="spass">
+                            <label >Password</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    
+                    <div class="col-md-8 justify-content-center p-2" style="text-align: left;">
+
+                    </div>
+                    <div class="col-md-2 ">
+                        <button type="button" class="btn form-control mt-2 mb-3 p-2"
+                    style="background-color: #56baed; color: white;" routerLink="/login">Back</button>
+                    </div>
+                    <div class="col-md-2 ">
+                        <button type="submit" class="btn form-control mt-2 mb-3 p-2"
+                    style="background-color: #56baed; color: white;">Next</button>
+                    </div>
+                </div>
+
+                
+            </form>
+
+
+        </div>
+    </div>
+</div>

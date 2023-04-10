@@ -1,0 +1,37 @@
+<mat-toolbar style="width: 100%; background-color: #07393c;">
+
+</mat-toolbar>
+
+<div class="container mt-5">
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="p-2">
+        <img src="assets/nlac.png" id="icon" alt="User Icon" />
+        <h1>Labor Report Monitoring System</h1>
+      </div>
+      <br>
+      <!-- Login Form -->
+      <form [formGroup]="Student" (ngSubmit)="Login()">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="floatingInput" formControlName="email">
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" formControlName="password">
+          <label for="floatingPassword">Password</label>
+        </div>
+        <button type="submit" class="btn form-control mt-3 mb-3 p-3" style="background-color: #56baed; color: white;">LOGIN</button>
+
+        <div class="mb-2">
+          <a>Already have account? </a>
+          <a routerLink="/register" style="color: black; font-weight: 500; padding-left: .2rem;">   APPLY HERE</a>
+        </div>
+      </form>
+
+  
+    </div>
+  </div>
+</div>
