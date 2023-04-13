@@ -1,0 +1,149 @@
+<mat-toolbar style="width: 100%; background-color: #07393c;">
+</mat-toolbar>
+<div class="container mt-2 p-5">
+  <h1 class="text-center" style="font-size: 35px; font-weight: 500;">APPLICATION PROCEDURE</h1>
+  <mat-vertical-stepper>
+    <form [formGroup]="ApplicationForm">
+      <mat-step label="Student Information">
+        <mat-card class="mt-4">
+          <mat-card-content>
+            <div class="row mt-2">
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="Firstnane" placeholder="Firstnane" formControlName="fname">
+                  <label for="Firstnane">Firstnane</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="middlename" placeholder="Middlename" formControlName="mname">
+                  <label for="middlename">Middle Name</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="lastname" placeholder="Lastname" formControlName="lname">
+                  <label for="lastname">Last Name</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="Address" placeholder="Lastname" formControlName="address">
+                  <label for="Address">Address</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="number" class="form-control" id="ID" placeholder="Firstnane" formControlName="schoolid">
+                  <label for="ID">ID No.</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" formControlName="scourse">
+                    <option *ngFor="let c of course">{{c}}</option>
+                  </select>
+                  <label >Course</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <div class="form-floating">
+                    <select class="form-select" formControlName="yrlevel">
+                      <option *ngFor="let yr of yrlvl">{{yr}}</option>
+                    </select>
+                    <label >Year Level</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="date" class="form-control" id="Birthdate" placeholder="Firstnane" formControlName="bdate">
+                  <label for="Birthdate">Birthdate</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="Contact" placeholder="Middlename" formControlName="contactno">
+                  <label for="Contact">Contact</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <select class="form-select" formControlName="status">
+                    <option *ngFor="let v of civil">{{v}}</option>
+                  </select>
+                  <label >Civil Status</label>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="ParentName"  formControlName="pname">
+                  <label for="ParentName">Parent Name</label>
+                </div>
+              </div>
+              <div class="col-md">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="Contact" formControlName="pcontact">
+                  <label for="Contact">Contact</label>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-button matStepperNext>Next</button>
+          </mat-card-actions>
+        </mat-card>
+
+      </mat-step>
+      <mat-step label="Work Details">
+        <mat-card class="mt-4">
+          <mat-card-content>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="Skills" placeholder="name@example.com" formControlName="skills">
+              <label for="Skills">Skills</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="pastwork" placeholder="Password" formControlName="pastwork">
+              <label for="pastwork">Past Work</label>
+            </div>
+            <div class="form-floating">
+              <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" formControlName="sreason"></textarea>
+              <label for="floatingTextarea2">Reason</label>
+            </div>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-step>
+      <mat-step label="Account Info">
+        <mat-card class="mt-4">
+          <mat-card-content>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" formControlName="semail">
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" formControlName="spass">
+              <label for="floatingPassword">Password</label>
+            </div>
+          </mat-card-content>
+          <mat-card-actions align="end">
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="SaveFunct()">Submit</button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-step>
+    </form>
+  </mat-vertical-stepper>
+</div>

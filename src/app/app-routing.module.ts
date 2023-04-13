@@ -4,6 +4,9 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LabordtrComponent } from './labordtr/labordtr.component';
 import { RegisterComponent } from './register/register.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { ApplicationComponent } from './application/application.component';
+import { DTRComponent } from './dtr/dtr.component';
 
 const routes: Routes = [
   {
@@ -14,6 +17,20 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'sidenav',
+    component: SidenavComponent,
+    children: [{
+      path: 'dtr',
+      component: DTRComponent, 
+    },
+    {
+      path: '',
+      pathMatch: 'full',
+      redirectTo: '/sidenav',
+    },
+  ],
   },
   {
     path: 'labordtr',
@@ -27,6 +44,10 @@ const routes: Routes = [
     path: 'register',
     component: RegisterComponent,
   },
+  {
+    path: 'application',
+    component: ApplicationComponent,
+  }
 ];
 
 @NgModule({

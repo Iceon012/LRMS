@@ -3,15 +3,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { PostService } from '../post.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-application',
+  templateUrl: './application.component.html',
+  styleUrls: ['./application.component.css']
 })
-export class RegisterComponent {
-
+export class ApplicationComponent {
 
   yrlvl : any = ['I','II','III','IV']
   course : any = ['BSIT','ACT','BSA','BSBA','BSN','BSPsy','ABTh','AB','BSED', 'BEED']
+  civil: any = ['Married', 'Single', 'Widow']
   
   ApplicationForm = new FormGroup({
     skills: new FormControl(null),
@@ -35,20 +35,18 @@ export class RegisterComponent {
 
   constructor( private post: PostService) { }
 
-  ngOnInit(): void {  }
-
   SaveFunct(){
-    // console.log(this.productForm.value);
+    console.log(this.ApplicationForm.value);
     this.post.saveApplication(this.ApplicationForm.value)
       .subscribe((result:any)=>{
         console.log(result)
         if(result == "OK"){
+          alert('Successfully')
           this.StudentData();
           this.ApplicationForm.reset()
         }
       })
   }
-
   StudentData(){
     // console.log(this.productForm.value);
     this.post.saveStudent(this.ApplicationForm.value)
@@ -56,4 +54,5 @@ export class RegisterComponent {
         console.log(result)
       })
   }
+
 }

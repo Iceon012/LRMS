@@ -1,0 +1,43 @@
+<mat-toolbar style="background-color: #07393c;">
+    <button mat-icon-button class="example-icon text-white" aria-label="Example icon-button with menu icon"
+        (click)="drawer.toggle()">
+        <mat-icon>toc</mat-icon>
+    </button>
+    <span class="text-white">Labor Report Monitoring System</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon ds" aria-label="Example icon-button with share icon">
+        <mat-icon class="text-white">
+          notifications
+        </mat-icon>
+    </button>
+</mat-toolbar>
+<mat-drawer-container class="example-container">
+    <mat-drawer #drawer class="example-sidenav">
+      <div class="list-group" style="margin: auto;">
+        <br>
+        <a href="#" class="list-group-item list-group-item-action disabled border-0" style="border-radius: 50%;">
+          <p class="text-center b-3">ID NO: <b>4761</b></p>
+          <img style="object-fit: cover; width: 150px; height: 150px; border-radius: 50%; border: 4px #f7f9fb solid; margin-bottom: 1rem;" src="assets/nlac.png">
+          <p class="text-center b-3">Arvin Ayson</p>
+        </a>
+        <br><br>
+        <a href="#" class="list-group-item list-group-item-action border-0 mb-1 list">
+          <button mat-fab extended>
+            <mat-icon>home</mat-icon>
+            Home
+          </button>
+        </a>
+        <a href="#" class="list-group-item list-group-item-action border-0 mb-1 list" routerLink="dtr">
+          <i class="fa fa-cogs" aria-hidden="true"> </i>
+          Account
+        </a>
+        <a class="list-group-item list-group-item-action border-0 list">
+          <i class="fa fa-table" aria-hidden="true"></i>
+          DTR Report
+        </a>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <router-outlet></router-outlet>
+    </mat-drawer-content>
+  </mat-drawer-container>

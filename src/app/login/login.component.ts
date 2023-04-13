@@ -25,7 +25,7 @@ export class LoginComponent {
       console.log(result);
       if(result != '0'){
         console.log(alert("Successfully Login!"))
-        this.route.navigate(['/dashboard']);
+        this.route.navigate(['/sidenav']);
       }else{
         console.log(alert("Error Login!"))
         this.Student.reset()
