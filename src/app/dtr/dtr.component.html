@@ -1,52 +1,145 @@
 <div class="container mt-5">
-    <h1>Daily Time Record</h1>
-    <form>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="employee-name" class="form-label">Employee Name</label>
-            <input type="text" class="form-control" id="employee-name" placeholder="Enter employee name">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="date" class="form-label">Date</label>
-            <input type="date" class="form-control" id="date" placeholder="Enter date">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="time-in" class="form-label">Time In</label>
-            <input type="time" class="form-control" id="time-in" placeholder="Enter time in">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="time-out" class="form-label">Time Out</label>
-            <input type="time" class="form-control" id="time-out" placeholder="Enter time out">
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="total-hours" class="form-label">Total Hours</label>
-            <input type="number" class="form-control" id="total-hours" placeholder="Enter total hours">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="remarks" class="form-label">Remarks</label>
-            <textarea class="form-control" id="remarks" rows="3"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="text-center">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="reset" class="btn btn-secondary">Cancel</button>
-      </div>
-    </form>
-  </div>
+  <h1
+  style="text-transform: capitalize; font-size: 44px; color: #60a9f3; padding-top: 2rem;"
+  *ngFor="let c of stringObject"
+>
+  hello {{ c.Name }}
+</h1>
+<h4>{{ dateString }}</h4>
   
+  <div>
+    <button
+      mat-stroked-button
+      style="background-color: #60a9f3; color: white"
+      (click)="openDialog('0ms', '0ms')"
+    >
+      <i class="fa fa-plus" aria-hidden="true"></i> ADD
+    </button>
+  </div>
+  <hr />
+  <br />
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="text-left">#</th>
+        <th class="text-left">Date Log</th>
+        <th class="text-center">Work done</th>
+        <th class="text-center">Time In</th>
+        <th class="text-center">Time Out</th>
+        <th class="text-center">Total Hrs.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of stringObjectDTR">
+        <td>{{ d.dtr_id }}</td>
+        <td class="text-left">{{ d.date }}</td>
+        <td class="text-center">
+          {{ d.workdone }}
+        </td>
+        <td class="text-center">
+          {{ d.timein }}
+          <div class="d-grid gap-1 d-md-flex justify-content-md-center">
+            <button
+              mat-raised-button
+              style="background-color: #09df9b; color: white"
+              (click)="onConfirm(confirmModal, d.dtr_id, d.date)"
+              *ngIf="d.timein == null"
+            >
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              Timein
+            </button>
+          </div>
+        </td>
+        <td class="text-center">
+          {{ d.timeout }}
+          <div class="d-grid gap-1 d-md-flex justify-content-md-center">
+            <button
+              mat-raised-button
+              style="background-color: #ab1920; color: white"
+              (click)="onConfirm2(confirmModal2, d.dtr_id, d.date)"
+              *ngIf="d.timein != null && d.timeout == null"
+            >
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              Timeout
+            </button>
+          </div>
+        </td>
+        <td class="text-center" style="font-weight: 700">
+          {{ d.diff }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #confirmModal let-modal>
+    <div class="modal-header">
+      <!-- <h4 class="modal-title" id="confirm">DTR Details</h4> -->
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="updateDTR">
+        <div class="row">
+          <div class="col-md">
+            <h1 class="text-center" style="font-size: 35px">
+              <!-- {{dtr}} -->
+              <div class="alert alert-info" role="alert">
+                A simple info alert—check it out!
+              </div>
+            </h1>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('1')"
+      >
+        Ok
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="modal.close('0')"
+      >
+        Cancel
+      </button>
+    </div>
+  </ng-template>
+
+  <ng-template #confirmModal2 let-modal>
+    <div class="modal-header">
+      <!-- <h4 class="modal-title" id="confirm">DTR Details</h4> -->
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="updateDTR">
+        <!-- {{dtr}} -->
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            id="floatingTextarea"
+            formControlName="workdone"
+          ></textarea>
+          <label for="floatingTextarea">Work done.</label>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button
+        type="submit"
+        class="btn btn-outline-dark"
+        (click)="modal.close('1')"
+      >
+        Ok
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-dark"
+        (click)="modal.close('0')"
+      >
+        Cancel
+      </button>
+    </div>
+  </ng-template>
+</div>

@@ -9,6 +9,10 @@ import { PostService } from '../post.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+
+  invalid = false
+  approval = false
+
   Student = new FormGroup({
     email : new FormControl(null),
     password : new FormControl(null)
@@ -21,13 +25,20 @@ export class LoginComponent {
   Login(){
     // this.route.navigate(['/main']);
     console.log(this.Student.value)
-    this.posting.Login(this.Student .value).subscribe((result:any)=>{
+    this.posting.Login(this.Student.value).subscribe((result:any)=>{
       console.log(result);
-      if(result != '0'){
-        console.log(alert("Successfully Login!"))
-        this.route.navigate(['/sidenav']);
-      }else{
-        console.log(alert("Error Login!"))
+      if(result == 3){
+        this.approval = true;
+        this.invalid = false;
+        this.Student.reset()
+      }
+      else if (result > 4){
+        localStorage.setItem("id",result);
+        this.route.navigate(['/sidenav']);        
+      }
+      else{
+        this.invalid = true;
+        this.approval = false;
         this.Student.reset()
       }
     });

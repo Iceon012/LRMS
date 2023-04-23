@@ -1,7 +1,7 @@
-<mat-toolbar style="width: 100%; background-color: #07393c;">
+<mat-toolbar style="width: 100%;" color="primary">
 </mat-toolbar>
 <div class="container mt-2 p-5">
-  <h1 class="text-center" style="font-size: 35px; font-weight: 500;">APPLICATION PROCEDURE</h1>
+  <h1 class="text-center" style="font-size: 35px; font-weight: 500; color: #07393c;">APPLICATION PROCEDURE</h1>
   <mat-vertical-stepper>
     <form [formGroup]="ApplicationForm">
       <mat-step label="Student Information">
@@ -98,9 +98,6 @@
               </div>
             </div>
           </mat-card-content>
-          <mat-card-actions align="end">
-            <button mat-button matStepperNext>Next</button>
-          </mat-card-actions>
         </mat-card>
 
       </mat-step>
@@ -120,10 +117,6 @@
               <label for="floatingTextarea2">Reason</label>
             </div>
           </mat-card-content>
-          <mat-card-actions align="end">
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </mat-card-actions>
         </mat-card>
       </mat-step>
       <mat-step label="Account Info">
@@ -139,7 +132,6 @@
             </div>
           </mat-card-content>
           <mat-card-actions align="end">
-            <button mat-button matStepperPrevious>Back</button>
             <button mat-button (click)="SaveFunct()">Submit</button>
           </mat-card-actions>
         </mat-card>

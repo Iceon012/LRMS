@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { PostService } from '../post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-application',
@@ -33,7 +34,7 @@ export class ApplicationComponent {
     spass: new FormControl(null),
   })
 
-  constructor( private post: PostService) { }
+  constructor( private post: PostService, private route:Router) { }
 
   SaveFunct(){
     console.log(this.ApplicationForm.value);
@@ -44,6 +45,7 @@ export class ApplicationComponent {
           alert('Successfully')
           this.StudentData();
           this.ApplicationForm.reset()
+          this.route.navigate(['/login']);
         }
       })
   }

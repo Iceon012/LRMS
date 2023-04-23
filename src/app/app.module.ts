@@ -21,9 +21,20 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatCommonModule, MatNativeDateModule} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatMenuModule} from '@angular/material/menu';
 import { ApplicationComponent } from './application/application.component';
 import { DTRComponent } from './dtr/dtr.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { NgbModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LaborDetailsComponent } from './labor-details/labor-details.component';
+import { UploadfrofileComponent } from './uploadfrofile/uploadfrofile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +46,10 @@ import { DTRComponent } from './dtr/dtr.component';
     SidenavComponent,
     ApplicationComponent,
     DTRComponent,
+    ProfileComponent,
+    HomeComponent,
+    LaborDetailsComponent,
+    UploadfrofileComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +68,16 @@ import { DTRComponent } from './dtr/dtr.component';
     MatBadgeModule,
     MatCardModule,
     MatDatepickerModule,
+    MatDialogModule,
+    MatCommonModule,
+    MatTableModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatInputModule,
+    NgbModule,
+    MatMenuModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,166 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md">
+      <div class="alert alert-success" role="alert" *ngIf="divshow">
+        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+        UPDATE Successfully!
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 text-center">
+      <form [formGroup]="UploadImage" (ngSubmit)="onPost()">
+        <div class="card rounded-5 shadow-sm p-4" style="align-items: center">
+          <h1>Profile Picture</h1>
+          <img
+            *ngFor="let p of images"
+            style="
+              object-fit: cover;
+              width: 200px;
+              height: 200px;
+              border-radius: 50%;
+              border: 4px #f7f9fb solid;
+              margin-bottom: 1rem;
+            "
+            [src]="p.img" />
+          <div class="form-group">
+            <div class="custom-file">
+              <input
+                type="file"
+                class="custom-file-input"
+                required
+                formControlName="files"
+                (change)="onFileSelected($event)"
+              />
+            </div>
+            <hr>
+            <div class="progress">
+              <div
+                class="progress-bar"
+                role="progressbar"
+                style="width:{{progress}}%"
+                [attr.aria-valuenow]="progress"
+                aria-valuemin="0"
+                aria-valuemax="100"
+              >
+                {{ progress }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+        <div class="mb-3">
+          <button type="submit" class="btn btn-outline-primary form-control">
+            <i class="fa fa-upload" aria-hidden="true"></i> Upload
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md">
+      <div class="card rounded-5 shadow-lg p-4">
+        <h1>Account Details</h1>
+        <form [formGroup]="updateStud" (ngSubmit)="onUpdate()">
+          <div class="row">
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control border-0"
+                  id="floatingInput"
+                  placeholder="name@example.com"
+                  style="background-color: #f4f4f4"
+                  formControlName="studentID"
+                  readonly
+                />
+                <label for="floatingInput">Student ID</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput1"
+                  placeholder="name@example.com"
+                  formControlName="studFirstName"
+                />
+                <label for="floatingInput1">Firstname</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput2"
+                  placeholder="name@example.com"
+                  formControlName="studMiddleName"
+                />
+                <label for="floatingInput2">Middlename</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput3"
+                  placeholder="name@example.com"
+                  formControlName="studLastName"
+                />
+                <label for="floatingInput3">Middlename</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput4"
+                  placeholder="name@example.com"
+                  formControlName="studAddress"
+                />
+                <label for="floatingInput4">Address</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  id="floatingInput5"
+                  placeholder="name@example.com"
+                  formControlName="birthDate"
+                />
+                <label for="floatingInput5">Birth Date</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInput6"
+                  placeholder="name@example.com"
+                  formControlName="studContact"
+                />
+                <label for="floatingInput6">Contact Number</label>
+              </div>
+            </div>
+          </div>
+          <br />
+          <button type="submit" class="btn btn-primary form-control">
+            Update
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

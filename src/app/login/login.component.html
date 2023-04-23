@@ -1,30 +1,32 @@
-<mat-toolbar style="width: 100%; background-color: #07393c;">
+<!-- <mat-toolbar style="width: 100%; background-color: #07393c;">
 
-</mat-toolbar>
+</mat-toolbar> -->
 
-<div class="container mt-5">
+<div class="container-fluid">
   <div class="wrapper fadeInDown">
     <div id="formContent">
       <!-- Tabs Titles -->
   
       <!-- Icon -->
-      <div class="p-2">
+      <div class="p-2 shadow-sm">
         <img src="assets/nlac.png" id="icon" alt="User Icon" />
-        <h1>Labor Report Monitoring System</h1>
+        <h2>LABOR REPORT MONITORING SYSTEM</h2>
+        <h1>STUDENT</h1>
+        <p class="text-warning" *ngIf="approval == true"><b>Access Denied: </b>Your Account need approval</p>
+        <p class="text-danger" *ngIf="invalid == true"><b>Access Denied: </b>Invalid email address or password!</p>
       </div>
       <br>
       <!-- Login Form -->
       <form [formGroup]="Student" (ngSubmit)="Login()">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" formControlName="email">
+          <input type="email" class="form-control border-0 bg-light" id="floatingInput" formControlName="email">
           <label for="floatingInput">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="floatingPassword" formControlName="password">
+          <input type="password" class="form-control border-0 bg-light" id="floatingPassword" formControlName="password">
           <label for="floatingPassword">Password</label>
         </div>
         <button type="submit" class="btn form-control mt-3 mb-3 p-3" style="background-color: #56baed; color: white;">LOGIN</button>
-
         <div class="mb-2">
           <a>Already have account? </a>
           <a routerLink="/application" style="color: black; font-weight: 500; padding-left: .2rem;">   APPLY HERE</a>

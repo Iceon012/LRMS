@@ -7,6 +7,10 @@ import { RegisterComponent } from './register/register.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ApplicationComponent } from './application/application.component';
 import { DTRComponent } from './dtr/dtr.component';
+import { ProfileComponent } from './profile/profile.component';
+import { HomeComponent } from './home/home.component';
+import { LaborDetailsComponent } from './labor-details/labor-details.component';
+import { UploadfrofileComponent } from './uploadfrofile/uploadfrofile.component';
 
 const routes: Routes = [
   {
@@ -22,15 +26,31 @@ const routes: Routes = [
     path: 'sidenav',
     component: SidenavComponent,
     children: [{
-      path: 'dtr',
+      path: 'dtr/:did',
       component: DTRComponent, 
+    },
+    {
+      path: 'profile/:did',
+      component: ProfileComponent,
+    },
+    {
+      path: 'home',
+      component: HomeComponent,
+    },
+    {
+      path: 'uploadprofile',
+      component: UploadfrofileComponent,
     },
     {
       path: '',
       pathMatch: 'full',
-      redirectTo: '/sidenav',
+      redirectTo: '/sidenav/home',
     },
   ],
+  },
+  {
+    path: 'laborDetails',
+    component: LaborDetailsComponent,
   },
   {
     path: 'labordtr',

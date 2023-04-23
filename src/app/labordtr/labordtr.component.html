@@ -1,1 +1,11 @@
-<p>labordtr works!</p>
+<!-- <h1 mat-dialog-title class="text-center">Time In</h1> -->
+<form [formGroup]="DTRDetails" (ngSubmit)="dtr()">
+<div mat-dialog-content class="text-center">
+    <!-- {{ dateVal | date : "HH:mm:ss" }} -->
+    Are you sure want to add DTR?
+</div>
+<div mat-dialog-actions >
+  <button mat-button mat-dialog-close>No</button>
+  <button type="submit" mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>
+</form>
